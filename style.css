@@ -39,13 +39,46 @@ header {
 header a {
   font-size: 1.5rem;
   color: var(--off-white);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+header a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background-color: var(--warn-color);
+  transition: width 0.3s ease;
+}
+
+header a:hover {
+  color: var(--secondary-color);
+}
+
+header a:hover::after {
+  width: 100%;
 }
 /* end header link animations */
 
 /* article link transitions */
 main a {
   color: var(--danger-color);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
+
+main a:hover {
+  color: var(--white);
+  background-color: var(--danger-color);
+}
+
 /* end article link transitions */
 
 main > article, nav{
@@ -100,6 +133,13 @@ section.hero > button {
   border-radius: 12px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+section.hero > button:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.1);
+  animation: bounce 0.3s;
 }
 
 main article {
